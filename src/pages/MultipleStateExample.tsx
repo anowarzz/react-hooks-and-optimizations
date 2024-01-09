@@ -14,7 +14,27 @@ const MultipleStateExample = () => {
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log({ user});
+    console.log({ user });
+  };
+
+  // DRY ==> Don't Repeat Yourself
+
+  // const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setUser({ ...user, name: e.target.value });
+  // };
+
+  // const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setUser({ ...user, email: e.target.value });
+  // };
+
+  // DRY ==> Don't Repeat Yourself
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(user);
+    const inputName = e.target.name;
+    const value = e.target.value;
+
+    setUser({ ...user, [inputName]: value });
   };
 
   return (
@@ -23,18 +43,20 @@ const MultipleStateExample = () => {
         <div>
           <label htmlFor="name">Name:</label>
           <input
-            onChange={(e) => setUser({ ...user, name: e.target.value })}
+            onChange={handleChange}
             type="text"
             id="name"
+            name="name"
             className=" border-blue-600 border-2 mx-2"
           />
         </div>
         <div className="my-2">
           <label htmlFor="email">Email:</label>
           <input
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            onChange={handleChange}
             type="email"
             id="email"
+            name="email"
             className=" border-blue-600 border-2 mx-2"
           />
         </div>
