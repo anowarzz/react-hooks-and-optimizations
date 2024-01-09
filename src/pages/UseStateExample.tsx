@@ -6,7 +6,7 @@ type TCounter = {
 };
 
 const UseStateExample = ({ counter, setCounter }: TCounter) => {
-  console.log("Render");
+
 
   const handleAsyncIncrement = () => {
     setTimeout(() => {
