@@ -15,7 +15,7 @@ const UseEffectExample = () => {
         {`Click me to ${hidden ? "Show" : "Hide"} Counter`}
       </button>
 
-      {!hidden && <Counter />}
+      {!hidden && <ToDo />}
     </div>
   );
 };
@@ -37,6 +37,20 @@ const Counter = () => {
     <h3 className="border-blue-400 border-2 py-2 px-4 my-6 font-bold width">
       {count}
     </h3>
+  );
+};
+
+const ToDo = () => {
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts/4")
+      .then((res) => res.json())
+      .then((data) => alert(data?.title));
+  }, []);
+
+  return (
+    <div>
+      <h2>Todo</h2>
+    </div>
   );
 };
 
