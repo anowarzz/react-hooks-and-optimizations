@@ -3,29 +3,36 @@ import { useEffect, useState } from "react";
 const UseEffectExample = () => {
   const [hidden, setHidden] = useState(false);
 
-const  [user, setUser] = useState({name: '', email: ''})
+  const [user, setUser] = useState({ name: "", email: "" });
 
-
-useEffect(() => {
-console.log("Render");
-
-}, [user])
-
+  useEffect(() => {
+    console.log("Render");
+  }, [user.name, user.email]);
 
   return (
     <div>
       <h1 className="text-2xl mb-5 font-bold text-red-600">
         Use Effect is running right now
       </h1>
-      
-      <input 
-      name="name"
-      id="name"
-        onBlur={(e) => setUser({...user, name: e.target.value})}
-      type="text" className="border-2 border-blue-300 p-1 m-4" />
-      <input 
-      name="name" id="id"        onBlur={(e) => setUser({...user, name: e.target.value})}
-      type="text" className="border-2 border-blue-300 p-1 m-4" />
+
+      <input
+        name="name"
+        id="name"
+        placeholder="Name"
+        autoComplete="off"
+        onBlur={(e) => setUser({ ...user, name: e.target.value })}
+        type="text"
+        className="border-2 border-blue-300 p-1 m-4"
+      />
+      <input
+        name="email"
+        id="email"
+        placeholder="Email"
+        autoComplete="off"
+        onBlur={(e) => setUser({ ...user, email: e.target.value })}
+        type="text"
+        className="border-2 border-blue-300 p-1 m-4"
+      />
     </div>
   );
 };
