@@ -3,19 +3,29 @@ import { useEffect, useState } from "react";
 const UseEffectExample = () => {
   const [hidden, setHidden] = useState(false);
 
+const  [user, setUser] = useState({name: '', email: ''})
+
+
+useEffect(() => {
+console.log("Render");
+
+}, [user])
+
+
   return (
     <div>
       <h1 className="text-2xl mb-5 font-bold text-red-600">
         Use Effect is running right now
       </h1>
-      <button
-        onClick={() => setHidden((prev) => !prev)}
-        className="btn p-2 m-2 bg-blue-500 text-white"
-      >
-        {`Click me to ${hidden ? "Show" : "Hide"} Counter`}
-      </button>
-
-      {!hidden && <ToDo />}
+      
+      <input 
+      name="name"
+      id="name"
+        onBlur={(e) => setUser({...user, name: e.target.value})}
+      type="text" className="border-2 border-blue-300 p-1 m-4" />
+      <input 
+      name="name" id="id"        onBlur={(e) => setUser({...user, name: e.target.value})}
+      type="text" className="border-2 border-blue-300 p-1 m-4" />
     </div>
   );
 };
@@ -41,10 +51,17 @@ const Counter = () => {
 };
 
 const ToDo = () => {
+  const controller = new AbortController();
+  const signal = controller.signal;
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts/4")
+    fetch("https://jsonplaceholder.typicode.com/posts/4", { signal })
       .then((res) => res.json())
       .then((data) => alert(data?.title));
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return (
