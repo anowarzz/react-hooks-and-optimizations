@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import CustomInput from "./CustomInput";
 
 const UseRefFormExample = () => {
   const myRef = useRef<HTMLInputElement | null>(null);
@@ -14,13 +15,15 @@ const UseRefFormExample = () => {
       </h3>
 
       <form>
-        <input
+        {/* <input
           ref={myRef}
           type="text"
           name="name"
           id="name"
           className="border border-red-500 block"
-        />
+        /> */}
+
+        <CustomInput ref={myRef} className="border border-cyan-500" />
 
         <button
           type="submit"
