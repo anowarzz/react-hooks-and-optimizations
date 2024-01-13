@@ -9,6 +9,8 @@ import UseRefExample from "./pages/UseRefExample";
 import UseRefFormExample from "./pages/UseRefFormExample";
 import { TThemeContext, ThemeContext } from "./context/ThemeProvider";
 import { MenuItem, MenuList } from "./components/Menu";
+import Profile from "./pages/Profile";
+import GameResults from "./pages/GameResults";
 
 function App() {
   // const [counter, setCounter] = useState(0);
@@ -29,17 +31,18 @@ function App() {
       {/* <UseReducerForm /> */}
       {/* <UseEffectExample /> */}
       {/* <UseRefExample /> */}
-      <UseRefFormExample />
+      {/* <UseRefFormExample /> */}
       <button
         onClick={() => setDark(!dark)}
         className="btn text-xl font-bold bg-cyan-400 p-2 my-4 text-gray-900"
       >
         Toggle Theme
       </button>
-
-      <MenuList>
+      {/* <Profile /> */}
+      <GameResults />
+      {/* <MenuList>
         <MenuItem></MenuItem>
-      </MenuList>
+      </MenuList> */}
     </div>
   );
 }
