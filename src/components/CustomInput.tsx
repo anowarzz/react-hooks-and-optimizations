@@ -8,7 +8,7 @@ const CustomInput = forwardRef<HTMLInputElement, TCustomInputProps>(
   ({ className }, inputRef) => {
     return (
       <div>
-        <input
+        <input   
           ref={inputRef}
           type="text"
           name="name"

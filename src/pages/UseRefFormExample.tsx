@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import CustomInput from "./CustomInput";
+import CustomInput from "../components/CustomInput";
 
 const UseRefFormExample = () => {
   const myRef = useRef<HTMLInputElement | null>(null);
