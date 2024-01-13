@@ -4,7 +4,7 @@ type TThemeProviderProps = {
   children: ReactNode;
 };
 
-type TThemeContext = {
+export type TThemeContext = {
   dark: boolean;
   setDark: Dispatch<React.SetStateAction<boolean>>;
 };
