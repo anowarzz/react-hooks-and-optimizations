@@ -11,17 +11,17 @@ import { TThemeContext, ThemeContext } from "./context/ThemeProvider";
 import { MenuItem, MenuList } from "./components/Menu";
 import Profile from "./pages/Profile";
 import GameResults from "./pages/GameResults";
+import UsersContainer from "./components/UsersContainer";
 
 function App() {
   // const [counter, setCounter] = useState(0);
 
   const { dark, setDark } = useContext(ThemeContext) as TThemeContext;
 
-  console.log(dark);
 
   return (
     <div
-      className={`w-full flex flex-col justify-center items-center h-screen ${
+      className={`w-full h-full mt-10 flex flex-col justify-center items-center  ${
         dark ? "bg-black" : "bg-white"
       }`}
     >
@@ -32,6 +32,9 @@ function App() {
       {/* <UseEffectExample /> */}
       {/* <UseRefExample /> */}
       {/* <UseRefFormExample /> */}
+      {/* <MenuList>
+        <MenuItem></MenuItem>
+      </MenuList> */}
       <button
         onClick={() => setDark(!dark)}
         className="btn text-xl font-bold bg-cyan-400 p-2 my-4 text-gray-900"
@@ -40,9 +43,7 @@ function App() {
       </button>
       {/* <Profile /> */}
       <GameResults />
-      {/* <MenuList>
-        <MenuItem></MenuItem>
-      </MenuList> */}
+      <UsersContainer />
     </div>
   );
 }
