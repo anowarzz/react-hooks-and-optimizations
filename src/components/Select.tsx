@@ -6,9 +6,6 @@ const Select = ({ children }) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   console.log(selectedOption);
-  
-
-
 
   return (
     <SelectContext.Provider value={{ selectedOption, setSelectedOption }}>
@@ -24,13 +21,15 @@ const Select = ({ children }) => {
 };
 
 const SelectOption = ({ value, children }) => {
-  const { selectedOption} = useSelectContext() ;
+  const { selectedOption } = useSelectContext();
 
-
-const isActive = selectedOption === value ;
+  const isActive = selectedOption === value;
 
   return (
-    <option className={`${isActive ? "bg-yellow-500" : "bg-white"}`} value={value}>
+    <option
+      className={`${isActive ? "bg-yellow-500" : "bg-white"}`}
+      value={value}
+    >
       {children}
     </option>
   );
@@ -40,15 +39,12 @@ Select.SelectOption = SelectOption;
 
 export default Select;
 
-
-
-
 const useSelectContext = () => {
-    const context = useContext(SelectContext) ;
-    
-    if(!context){
-        throw new Error('Context out of bound')
-    }
+  const context = useContext(SelectContext);
 
-    return context ;
-}
+  if (!context) {
+    throw new Error("Context out of bound");
+  }
+
+  return context;
+};
