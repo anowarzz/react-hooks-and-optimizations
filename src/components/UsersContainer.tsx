@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import UserLists from "./UserLists";
 
 const UsersContainer = () => {
   const url = "https://jsonplaceholder.typicode.com/users";
@@ -24,20 +25,7 @@ const UsersContainer = () => {
     getUsers();
   }, []);
 
-  if (isLoading && !error) {
-    return <p>Loading...</p>;
-  }
-
-  return (
-    <div>
-      {data.map((user, index) => (
-        <div key={index}>
-          <p className="text-2xl  m-2 font-semibold">{user?.name}</p>
-          <p className="text-xs  m-2 font-semibold">{user?.username}</p>
-        </div>
-      ))}
-    </div>
-  );
+  return <UserLists isLoading={isLoading} error={error} data={data} />;
 };
 
 export default UsersContainer;
